@@ -1,6 +1,7 @@
 import React from "react"
 import { Typography , Box , Grid , CssBaseline ,Button,CardContent,CardMedia,Card} from "@mui/material"
 import { Link } from "react-router-dom";
+import { red } from "@mui/material/colors";
 export default function Home(){
     const categories = [
         {
@@ -49,15 +50,19 @@ export default function Home(){
         <Button variant="contained" component={Link} to="store">Explore Now</Button>
       </Box>
           <Typography variant="h4" align="center" marginTop="25px"> Featured Categories </Typography>
-      <Box sx={{display:"grid",gridTemplateColumns:"repeat(2 , 1fr)",margin:"25px"}}>
+      <Grid container spacing={2} sx={{margin:"25px" ,justifyContent:{xs:"center"}}}>
             {
                 categories.map(items => (
-                    <Grid key={items.title}>
-                        <Card sx={{display:"flex",flexDirection:"column", alignItems:"center",justifyContent:"center",
-                            margin:"20px"
+                    <Grid  item xs={12} sm={6} md={6} key={items.title}>
+                        <Card sx={{display:"flex",flexDirection:"column", 
+                        alignItems:"center",
+                        justifyContent:"center",
+                        margin:"20px",
+                        height:"100%",
+                        pr:2,pl:2
                         }}>
                             <CardMedia component="img" image={items.image}
-                            sx={{ width: "100%",
+                            sx={{ width: "400px",
                                 height: "300px",
                                 objectFit: "cover", 
                                }}
@@ -72,10 +77,10 @@ export default function Home(){
                     </Grid>
                 ))
             }
-      </Box>
-      <Box sx={{display:"flex", padding:"10px"}}>
+      </Grid>
+      <Box sx={{display:"flex", padding:"10px", mb:1 , flexDirection:{xs:"column",md:"row"}}}>
             <CardMedia component="img" image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJ1c2luZXNzfGVufDB8MHwwfHx8MA%3D%3D"
-            sx={{width:"50%", height:"auto"}}
+            sx={{width:{xs:"100%",md:"50%"}, height:"auto"}}
             />
             <CardContent>
                 <Typography variant="h3">Become a bussiness partner</Typography>
